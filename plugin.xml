@@ -9,9 +9,9 @@
         <engine name="cordova" version=">=3.0.0"/>
     </engines>
 
-    <asset src="www/NewPlugin.js" target="js/NewPlugin.js"/>
+    <asset src="www/NewMyPlugin.js" target="js/NewMyPlugin.js"/>
 
-    <js-module src="www/NewPlugin.js" name="NewPlugin">
+    <js-module src="www/NewMyPlugin.js" name="NewPlugin">
         <clobbers target="NewPlugin" /> <!-- объект, к которому обращается приложение -->
     </js-module>
 
@@ -33,3 +33,4 @@
     </platform>
 
 </plugin>
+
