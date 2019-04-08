@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.example.newplugin"
+        version="1.0">
+
+    <name>NewPlugin</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+    <asset src="www/NewPlugin.js" target="js/NewPlugin.js"/>
+
+    <js-module src="www/NewPlugin.js" name="NewPlugin">
+        <clobbers target="NewPlugin" /> <!-- объект, к которому обращается приложение -->
+    </js-module>
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="NewPlugin">
+                <param name="android-package" value="com.example.plugin.NewPlugin"/> <!-- регистрируем главный java-класс -->
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="com.example.plugin.MyService" /> <!-- регистрируем фоновый процесс (сервис) -->
+        </config-file>
+
+        <framework src="com.android.support:support-v4:+" /> <!-- библиотека, содержащая необходимые java-классы  -->
+        <!-- основной java-файл --><source-file src="src/android/NewPLugin.java" target-dir="src/com/example/plugin/"/>
+        <!-- java-файл, содержащий Service --><source-file src="src/android/MyService.java" target-dir="src/com/example/plugin/"/>
+    </platform>
+
+</plugin>
